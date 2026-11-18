@@ -468,3 +468,8 @@ main { position: relative; }
 .swarm { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: opacity 1.2s var(--ease); }
 .swarm.on { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .swarm { display: none; } }
+
+/* correo de contacto */
+.mailto { margin-top: 18px; color: var(--muted-light); }
+.mailto a, .status a, .foot-legal a { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.mailto a { color: var(--text-light); }
