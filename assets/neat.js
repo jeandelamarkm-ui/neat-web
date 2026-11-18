@@ -225,7 +225,10 @@
     if (!canvas || !canvas.getContext) return;
     var ctx = canvas.getContext("2d");
     S = { ctx: ctx, p: [], w: 0, h: 0, dpr: 1, px: -999, py: -999, running: false, opacity: -1, pts: [], mode: "drift" };
-    function resize() {
+    function resize(e) {
+      // En el celular la barra del navegador aparece y desaparece al desplazarse y cambia
+      // solo la altura: no rehacer el lienzo por eso (lo estiramos un poco y ya).
+      if (e && S.w === window.innerWidth && Math.abs(window.innerHeight - S.h) < 220) return;
       S.dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       var ow = S.w || window.innerWidth, oh = S.h || window.innerHeight;
       S.w = window.innerWidth; S.h = window.innerHeight;
@@ -328,7 +331,12 @@
     });
   }
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", function () { measureHero(); sizeDemo(); paintHead(); });
+  var resizeQueued = false;
+  window.addEventListener("resize", function () {
+    if (resizeQueued) return;
+    resizeQueued = true;
+    requestAnimationFrame(function () { resizeQueued = false; measureHero(); sizeDemo(); paintHead(); });
+  });
   document.addEventListener("visibilitychange", kickStars);
 
   measureHero();
