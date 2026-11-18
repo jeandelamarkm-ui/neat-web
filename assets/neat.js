@@ -131,6 +131,86 @@
     paintHero(true);
   }
   var lastP = -1;
+  // las manos son lo más grande y pesado: se mueven con un poco de retraso
+  function paintHands(pp) {
+    var a = smooth(0, 0.42, pp) * 0.82;
+    H.l.style.transform = "translate(" + (0.010 * H.w * a) + "px," + (-0.0225 * H.h * a) + "px)";
+    H.r.style.transform = "translate(" + (-0.010 * H.w * a) + "px," + (0.0225 * H.h * a) + "px)";
+  }
+
+  /* ---------- enjambre de luz: chispas pequeñas y rápidas alrededor de los dedos ---------- */
+  var SW = null;
+  function setupSwarm() {
+    var cv = hero && hero.querySelector(".swarm");
+    if (!cv || !cv.getContext || reduce) return;
+    var ctx = cv.getContext("2d");
+    // una chispa dibujada una vez y reutilizada (más barato que sombras en cada cuadro)
+    var spr = document.createElement("canvas"); spr.width = spr.height = 48;
+    var g = spr.getContext("2d"), gr = g.createRadialGradient(24, 24, 0, 24, 24, 24);
+    gr.addColorStop(0, "rgba(255,253,248,1)"); gr.addColorStop(0.14, "rgba(255,240,210,1)");
+    gr.addColorStop(0.3, "rgba(255,196,118,0.9)"); gr.addColorStop(0.58, "rgba(236,146,62,0.32)"); gr.addColorStop(1, "rgba(236,146,62,0)");
+    g.fillStyle = gr; g.fillRect(0, 0, 48, 48);
+    SW = { cv: cv, ctx: ctx, spr: spr, m: [], w: 0, h: 0, ph: 0, run: false, vis: true, last: 0 };
+    function size(e) {
+      if (e && SW.w === window.innerWidth && Math.abs(window.innerHeight - SW.h) < 220) return;
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      SW.w = window.innerWidth; SW.h = window.innerHeight;
+      cv.width = Math.round(SW.w * dpr); cv.height = Math.round(SW.h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = SW.w >= 900 ? 90 : 56;
+      if (SW.m.length !== n) {
+        SW.m = [];
+        for (var i = 0; i < n; i++) {
+          SW.m.push({ x: -99, y: -99, ph: Math.random() * 6.2832, sp: 0.7 + Math.random() * 0.9, rx: 0.35 + Math.random() * 0.65, ry: 0.25 + Math.random() * 0.55,
+            tilt: (Math.random() - 0.5) * 1.2, sz: 9 + Math.random() * 15, del: Math.random(), fl: Math.random() * 6.2832 });
+        }
+      }
+    }
+    size();
+    window.addEventListener("resize", size);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) { SW.vis = en[0].isIntersecting; if (SW.vis) kickSwarm(); }).observe(hero);
+    }
+    SW.ph = heroProgress();
+    cv.classList.add("on");
+    kickSwarm();
+  }
+  function kickSwarm() { if (SW && !SW.run && SW.vis && !document.hidden) { SW.run = true; requestAnimationFrame(loopSwarm); } }
+  function loopSwarm(t) {
+    if (!SW.vis || document.hidden) { SW.run = false; paintHands(heroProgress()); return; }
+    var p = heroProgress();
+    SW.ph += (p - SW.ph) * 0.07;
+    if (Math.abs(p - SW.ph) < 0.0005) SW.ph = p;
+    paintHands(SW.ph);
+    var ctx = SW.ctx, W = SW.w, Hh = SW.h;
+    ctx.clearRect(0, 0, W, Hh);
+    var gone = smooth(0.44, 0.58, p);
+    if (gone < 1) {
+      var c = H.core.getBoundingClientRect(), cx = c.left + c.width / 2, cy = c.top + c.height / 2;
+      var R = Math.min(W, Hh) * (W >= 900 ? 0.34 : 0.36), tt = t * 0.001;
+      // el centro del enjambre deambula un poco, como una bandada
+      var wx = Math.sin(tt * 0.53) * R * 0.18, wy = Math.cos(tt * 0.41) * R * 0.12;
+      for (var i = 0; i < SW.m.length; i++) {
+        var q = SW.m[i];
+        var pull = smooth(0.06 + 0.26 * q.del, 0.2 + 0.24 * q.del, p); // cada chispa entra a su tiempo
+        var r = R * (1 - pull);
+        var ang = q.ph + tt * q.sp * (1.2 + 2.4 * pull);
+        var ox = Math.cos(ang) * r * q.rx, oy = Math.sin(ang) * r * q.ry;
+        var tx = cx + (ox * Math.cos(q.tilt) - oy * Math.sin(q.tilt)) + wx * (1 - pull);
+        var ty = cy + (ox * Math.sin(q.tilt) + oy * Math.cos(q.tilt)) + wy * (1 - pull);
+        if (q.x < -50) { q.x = tx; q.y = ty; }
+        q.x += (tx - q.x) * 0.22; q.y += (ty - q.y) * 0.22;
+        var a = (0.7 + 0.3 * Math.sin(tt * 3.1 * q.sp + q.fl)) * (1 - pull * 0.7) * (1 - gone);
+        if (a < 0.02) continue;
+        var s = q.sz * (1 - 0.6 * pull);
+        ctx.globalAlpha = a;
+        ctx.drawImage(SW.spr, q.x - s / 2, q.y - s / 2, s, s);
+      }
+      ctx.globalAlpha = 1;
+    }
+    if (gone >= 1 && Math.abs(p - SW.ph) < 0.001) { SW.run = false; return; }
+    requestAnimationFrame(loopSwarm);
+  }
   function heroProgress() {
     var r = hero.getBoundingClientRect();
     var span = hero.offsetHeight - window.innerHeight;
@@ -141,12 +221,12 @@
     var p = reduce ? 0 : heroProgress();
     if (!force && Math.abs(p - lastP) < 0.0004) return;
     lastP = p;
-    var a = smooth(0, 0.42, p) * 0.82;
-    H.l.style.transform = "translate(" + (0.010 * H.w * a) + "px," + (-0.0225 * H.h * a) + "px)";
-    H.r.style.transform = "translate(" + (-0.010 * H.w * a) + "px," + (0.0225 * H.h * a) + "px)";
+    if (!SW || !SW.run) paintHands(p);
     var handsOut = 1 - smooth(0.42, 0.66, p);
     H.l.style.opacity = H.r.style.opacity = handsOut;
     H.sky.style.transform = "scale(" + (1 + 0.06 * smooth(0, 1, p)) + ")";
+    // cae la noche: el cielo se apaga y aparecen las estrellas que siguen bajando por la página
+    H.sky.style.opacity = 1 - smooth(0.34, 0.74, p);
     H.night.style.opacity = smooth(0.32, 0.72, p);
     var e = smooth(0.48, 0.95, p);
     H.stage.style.transform = "translate(" + H.tx * e + "px," + H.ty * e + "px) scale(" + (1 + (H.s - 1) * e) + ")";
@@ -306,7 +386,7 @@
   }
   function starsOpacity() {
     if (!hero || reduce) return 1;
-    return smooth(0.8, 1, heroProgress());
+    return smooth(0.46, 0.8, heroProgress());
   }
   function loopStars(t) {
     S.running = false;
@@ -327,6 +407,7 @@
       ticking = false;
       paintHero(false);
       paintHead();
+      kickSwarm();
       if (reduce && S) loopStars(0);
     });
   }
@@ -337,7 +418,7 @@
     resizeQueued = true;
     requestAnimationFrame(function () { resizeQueued = false; measureHero(); sizeDemo(); paintHead(); });
   });
-  document.addEventListener("visibilitychange", kickStars);
+  document.addEventListener("visibilitychange", function () { kickStars(); kickSwarm(); });
 
   measureHero();
   paintHead();
@@ -345,8 +426,9 @@
   startReveal();
 
   function afterLoad() {
-    // el polvo de luz arranca cuando la primera pantalla ya se ve
+    // el polvo de luz y el enjambre arrancan cuando la primera pantalla ya se ve
     idleRun(startStars);
+    idleRun(setupSwarm);
   }
   function startStars() {
     setupStars();
