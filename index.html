@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NEAT · Sistemas inteligentes para operar mejor</title>
+<meta name="description" content="Diseñamos e implementamos sistemas que conectan procesos, información y equipos para que tu empresa tenga más capacidad para el trabajo que la hace crecer.">
+<meta name="theme-color" content="#06080b">
+<link rel="alternate" hreflang="es" href="https://get-neat.ai/">
+<link rel="alternate" hreflang="en" href="https://get-neat.ai/en/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NEAT">
+<meta property="og:title" content="NEAT · Tu talento tiene mejores cosas que hacer.">
+<meta property="og:description" content="Diseñamos e implementamos sistemas que conectan procesos, información y equipos para que tu empresa tenga más capacidad para el trabajo que la hace crecer.">
+<meta property="og:image" content="https://jeandelamarkm-ui.github.io/neat-web/assets/og.jpg">
+<meta property="og:url" content="https://jeandelamarkm-ui.github.io/neat-web/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0d10'/%3E%3Cg transform='translate(12.5 15.5) scale(.17)' fill='white'%3E%3Cpath d='M230.60%20162.00L230.60%20108.00C175.31%20108.00%20178.39%20109.39%20152.75%2083.75L97.68%2028.68C82.83%2013.83%2064.74%207.32%2043.74%207.32C25.28%207.32%200.00%2015.00%200.00%2053.91L0.00%20167.50L58.10%20167.50L58.10%2088.17C58.10%2081.93%2065.64%2078.81%2070.05%2083.22L120.60%20133.77C153.43%20166.59%20173.94%20174.00%20194.34%20174.00C207.91%20174.00%20220.86%20169.54%20230.60%20162.00Z'/%3E%3Ccircle cx='201.55' cy='36.37' r='29.05'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="assets/neat.css">
+<script>document.documentElement.className += " js";setTimeout(function(){if(!window.__neat)document.documentElement.classList.remove("js")},4000);</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<canvas id="dots" aria-hidden="true"></canvas>
+<header class="head">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="NEAT"><svg class="" viewBox="0 17.3 724 156.7" role="img" aria-label="NEAT"><g transform="translate(0 10.44) scale(.94)"><path d="M230.60 162.00L230.60 108.00C175.31 108.00 178.39 109.39 152.75 83.75L97.68 28.68C82.83 13.83 64.74 7.32 43.74 7.32C25.28 7.32 0.00 15.00 0.00 53.91L0.00 167.50L58.10 167.50L58.10 88.17C58.10 81.93 65.64 78.81 70.05 83.22L120.60 133.77C153.43 166.59 173.94 174.00 194.34 174.00C207.91 174.00 220.86 169.54 230.60 162.00Z"/></g><circle cx="189.46" cy="44.63" r="27.31"/><path d="M260 20H383V56H296V79H371V114H296V138H383V174H260Z"/><path fill-rule="evenodd" d="M414 174L478 20H511L575 174H536L525 145H462L451 174Z M475 111H512L493.5 61Z"/><path d="M582 20H724V56H671V174H635V56H582Z"/></svg></a>
+    <nav class="nav" aria-label="Principal"><a href="capacidades.html">Capacidades</a><a href="protocolo.html">NEAT Protocol</a><a href="casos.html">Casos</a><a href="nosotros.html">Nosotros</a></nav>
+    <a class="lang" href="en/index.html" hreflang="en" lang="en" aria-label="Read in English">EN</a>
+    <a class="head-cta" href="hablemos.html"><span>Hablemos de tu operación</span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="drawer" aria-label="Abrir el menú"><i></i><i></i></button>
+  </div>
+</header>
+<div class="drawer" id="drawer"><a href="capacidades.html">Capacidades</a><a href="protocolo.html">NEAT Protocol</a><a href="casos.html">Casos</a><a href="nosotros.html">Nosotros</a><a href="en/index.html" lang="en">English</a><a class="btn" href="hablemos.html">Hablemos de tu operación <span class="arr" aria-hidden="true">→</span></a></div>
+<section class="hero" aria-label="NEAT">
+  <div class="hero-pin">
+    <div class="sky" style="background-image:image-set(url('assets/cielo-1200.webp') 1x, url('assets/cielo-2400.webp') 2x)"></div>
+    <div class="night"></div>
+    <div class="stage">
+      <svg class="mark" viewBox="0 17.3 724 156.7" aria-hidden="true"><g transform="translate(0 10.44) scale(.94)"><path d="M230.60 162.00L230.60 108.00C175.31 108.00 178.39 109.39 152.75 83.75L97.68 28.68C82.83 13.83 64.74 7.32 43.74 7.32C25.28 7.32 0.00 15.00 0.00 53.91L0.00 167.50L58.10 167.50L58.10 88.17C58.10 81.93 65.64 78.81 70.05 83.22L120.60 133.77C153.43 166.59 173.94 174.00 194.34 174.00C207.91 174.00 220.86 169.54 230.60 162.00Z"/></g><path d="M260 20H383V56H296V79H371V114H296V138H383V174H260Z"/><path fill-rule="evenodd" d="M414 174L478 20H511L575 174H536L525 145H462L451 174Z M475 111H512L493.5 61Z"/><path d="M582 20H724V56H671V174H635V56H582Z"/></svg>
+      <div class="hand hand-l"><img src="assets/mano-izq.webp" alt="" width="1098" height="627" decoding="async"></div>
+      <div class="hand hand-r"><img src="assets/mano-der.webp" alt="" width="1103" height="730" decoding="async"></div>
+      <div class="spark" aria-hidden="true"><div class="glow"><i></i></div><div class="core"></div></div>
+    </div>
+    <div class="hero-copy">
+      <div class="wrap">
+        <h1 class="display">Tu talento tiene <em>mejores cosas</em> que hacer.</h1>
+        <p class="lead">NEAT diseña e implementa sistemas que conectan procesos, información y equipos. Quitamos fricción operativa para que la capacidad recuperada tenga un destino: vender más, mejorar márgenes, atender mejor o crecer sin multiplicar la carga.</p>
+        <div class="actions">
+          <a class="btn ink" href="hablemos.html">Veamos qué está frenando a tu equipo <span class="arr" aria-hidden="true">→</span></a>
+          <a class="link" href="protocolo.html">Conoce el NEAT Protocol <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <p class="hero-end">Ver lo que estaba ahí. Conectar lo que faltaba.</p>
+    <div class="cue" aria-hidden="true">Desliza</div>
+  </div>
+</section>
+
+<main id="main">
+  <section class="scene" data-head="dark" data-p="tense">
+    <div class="art" aria-hidden="true"><img src="assets/friccion-2000.webp" srcset="assets/friccion-1000.webp 1000w, assets/friccion-2000.webp 2000w" sizes="100vw" alt="" width="2000" height="1116" decoding="async" loading="lazy"></div>
+    <div class="wrap"><div class="copy">
+      <h2 class="title rv">La fricción que <em>aprendiste a soportar</em>.</h2>
+      <p class="lead rv d1">No suele aparecer como un gran problema. Se acumula mientras la empresa crece, hasta que sostener la operación empieza a quitarle capacidad al negocio.</p>
+      <div class="items"><div class="item rv"><h3>La misma información, varias veces</h3><p>Datos que pasan de correo a hoja de cálculo, de la hoja a otro sistema y vuelven a escribirse.</p></div><div class="item rv"><h3>Aprobaciones que hay que perseguir</h3><p>Solicitudes que esperan en una bandeja y nadie sabe exactamente en qué van.</p></div><div class="item rv"><h3>Un proceso que vive en una persona</h3><p>Si esa persona no está, el trabajo se frena o alguien tiene que reconstruirlo.</p></div><div class="item rv"><h3>Reprocesos y excepciones</h3><p>Errores que se corrigen a mano, una y otra vez.</p></div><div class="item rv"><h3>Oportunidades que esperan</h3><p>Cotizaciones, seguimientos y clientes que pierden atención porque el equipo está sosteniendo lo manual.</p></div></div>
+      <p class="coda rv">El esfuerzo humano es demasiado valioso para desperdiciarlo.</p>
+    </div></div>
+  </section>
+
+  <section class="scene flip" data-head="dark" data-p="drift">
+    <div class="art" aria-hidden="true"><img src="assets/luz-2000.webp" srcset="assets/luz-1000.webp 1000w, assets/luz-2000.webp 2000w" sizes="100vw" alt="" width="2000" height="1116" decoding="async" loading="lazy"></div>
+    <div class="wrap"><div class="copy">
+      <h2 class="title rv">Trabajar mejor debería <em>hacer crecer</em> tu negocio.</h2>
+      <p class="lead rv d1">El punto no es automatizar por automatizar. Es decidir qué podría hacer tu equipo si el trabajo repetitivo dejara de ocupar tanto espacio.</p>
+      <div class="roles"><div class="rv d0"><h3>Quien dirige</h3><p>Vuelve a mirar hacia dónde crecer, con información más clara.</p></div><div class="rv d1"><h3>Quien opera</h3><p>Resuelve excepciones y mejora el servicio, con menos reproceso.</p></div><div class="rv d2"><h3>Quien vende</h3><p>Dedica atención a clientes y oportunidades que antes se quedaban esperando.</p></div></div>
+      <p class="question rv">Cada proyecto empieza con una pregunta: <strong>¿Qué trabajo valioso queremos hacer posible?</strong></p>
+    </div></div>
+  </section>
+
+  <section class="sec" data-head="dark" data-p="flow">
+    <div class="wrap">
+      <div class="head-row">
+        <div><p class="eyebrow rv">Qué hace NEAT</p><h2 class="title rv d1">Diseñamos sistemas para que la operación <em>se mueva mejor</em>.</h2></div>
+        <p class="lead rv d2">Elegimos procesos por su impacto, construimos con las personas que harán el trabajo y definimos cómo se comprobará el cambio. La tecnología entra después del problema, no antes.</p>
+      </div>
+      <ol class="capslist"><li class="rv"><span class="n">01</span><h3>Liberar capacidad</h3><p>Quitar trabajo repetitivo que no necesita criterio humano.</p></li><li class="rv"><span class="n">02</span><h3>Conectar información</h3><p>Hacer que datos, equipos y herramientas dejen de funcionar como mundos separados.</p></li><li class="rv"><span class="n">03</span><h3>Acelerar la operación</h3><p>Reducir pasos, esperas y reprocesos antes de automatizar.</p></li><li class="rv"><span class="n">04</span><h3>Escalar con menos fricción</h3><p>Absorber más volumen sin multiplicar la carga al mismo ritmo.</p></li><li class="rv"><span class="n">05</span><h3>Convertir información en decisiones</h3><p>Llevar lo relevante a quien decide, cuando lo necesita.</p></li></ol>
+      <div class="actions rv"><a class="link" href="capacidades.html">Explorar capacidades <span class="arr" aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+
+  <section class="scene" data-head="dark" data-p="drift">
+    <div class="art" aria-hidden="true"><img src="assets/cabeza-2000.webp" srcset="assets/cabeza-1000.webp 1000w, assets/cabeza-2000.webp 2000w" sizes="100vw" alt="" width="2000" height="1116" decoding="async" loading="lazy"></div>
+    <div class="wrap"><div class="copy">
+      <p class="eyebrow rv">The NEAT Protocol</p>
+      <h2 class="title rv d1">Ver lo que estaba ahí. Conectar lo que faltaba. <em>Medir lo que cambió.</em></h2>
+      <p class="lead rv d2">Nuestra forma de pasar de una fricción operativa a un sistema que funciona en el trabajo real.</p>
+      <ol class="steps"><span class="line" aria-hidden="true"></span><li><h3>Entender</h3><p>Te llevas un mapa compartido del problema y una línea base cuando existe.</p></li><li><h3>Encontrar</h3><p>Te llevas prioridades con criterio de negocio, no una lista de ideas de IA.</p></li><li><h3>Diseñar</h3><p>Te llevas alcance, flujo futuro, responsables, criterios de aceptación y decisión de construir o no.</p></li><li><h3>Implementar</h3><p>Te llevas un sistema aceptado, responsable definido, documentación y soporte acordado.</p></li><li><h3>Medir & evolucionar</h3><p>Te llevas evidencia del cambio y una siguiente decisión clara.</p></li></ol>
+      <p class="chainline rv"><b>Mostrar el cambio. Explicar cómo se midió.</b> <span>Antes</span> → <span>Cambio</span> → <span>Después</span> → <span>Qué habilitó</span></p>
+      <div class="actions rv"><a class="link" href="protocolo.html">Explorar el NEAT Protocol <span class="arr" aria-hidden="true">→</span></a></div>
+    </div></div>
+  </section>
+
+  <section class="belief" data-head="sky">
+    <div class="bg" aria-hidden="true"><img src="assets/dedos.webp" alt="" width="1600" height="1189" loading="lazy" decoding="async"></div>
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow rv">En qué creemos</p>
+        <h2 class="title rv d1">Humanos donde <em>realmente importa</em>.</h2>
+        <p class="lead rv d2">La tecnología debe quitar lo que impide a las personas aportar valor. Diseñamos con quienes usarán el sistema, mantenemos criterio humano donde importa y distinguimos una estimación de un resultado medido.</p>
+        <div class="actions rv d3"><a class="link" href="nosotros.html">Conocer NEAT <span class="arr" aria-hidden="true">→</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="close" data-head="dark" data-p="drift">
+    <div class="wrap">
+      <h2 class="title rv">¿Qué podría hacer tu equipo si esto <em>dejara de frenarlo</em>?</h2>
+      <p class="lead rv d1">Cuéntanos qué proceso te está quitando capacidad. En una conversación de 30 minutos vemos si vale la pena resolverlo y por dónde empezaríamos.</p>
+    </div>
+    <div class="logo-slot" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="actions rv"><a class="btn" href="hablemos.html">Veamos qué está frenando a tu equipo <span class="arr" aria-hidden="true">→</span></a></div>
+      <p class="era rv d1" lang="en">Welcome to the NEAT Era.</p>
+    </div>
+  </section>
+</main>
+<footer class="foot" data-head="dark">
+  <div class="wrap">
+    <div class="foot-top">
+      <div><svg class="foot-logo" viewBox="0 17.3 724 156.7" role="img" aria-label="NEAT"><g transform="translate(0 10.44) scale(.94)"><path d="M230.60 162.00L230.60 108.00C175.31 108.00 178.39 109.39 152.75 83.75L97.68 28.68C82.83 13.83 64.74 7.32 43.74 7.32C25.28 7.32 0.00 15.00 0.00 53.91L0.00 167.50L58.10 167.50L58.10 88.17C58.10 81.93 65.64 78.81 70.05 83.22L120.60 133.77C153.43 166.59 173.94 174.00 194.34 174.00C207.91 174.00 220.86 169.54 230.60 162.00Z"/></g><circle cx="189.46" cy="44.63" r="27.31"/><path d="M260 20H383V56H296V79H371V114H296V138H383V174H260Z"/><path fill-rule="evenodd" d="M414 174L478 20H511L575 174H536L525 145H462L451 174Z M475 111H512L493.5 61Z"/><path d="M582 20H724V56H671V174H635V56H582Z"/></svg><p>Sistemas inteligentes para operar mejor. Construimos desde Colombia. Trabajamos en español e inglés.</p></div>
+      <nav class="foot-nav" aria-label="Sitio"><a href="capacidades.html">Capacidades</a><a href="protocolo.html">NEAT Protocol</a><a href="casos.html">Casos</a><a href="nosotros.html">Nosotros</a><a href="hablemos.html">Hablemos de tu operación</a><a href="en/index.html" lang="en">English</a></nav>
+    </div>
+    <div class="foot-legal"><span>© 2026 NEAT</span><span>get-neat.ai</span></div>
+  </div>
+</footer>
+<script src="assets/neat.js"></script>
+</body>
+</html>
