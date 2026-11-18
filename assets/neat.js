@@ -215,6 +215,12 @@
     return pts;
   }
 
+  var idleRun = window.requestIdleCallback ? function (f) { window.requestIdleCallback(f, { timeout: 1500 }); } : function (f) { setTimeout(f, 300); };
+  function logoShape() {
+    var lw = S.w >= 900 ? Math.min(S.w * 0.7, 900) : S.w * 0.84;
+    return logoPoints(lw, Math.round(S.p.length * 0.86));
+  }
+
   function setupStars() {
     if (!canvas || !canvas.getContext) return;
     var ctx = canvas.getContext("2d");
@@ -235,8 +241,9 @@
       } else {
         S.p.forEach(function (q) { q.hx *= S.w / ow; q.hy *= S.h / oh; });
       }
-      var lw = S.w >= 900 ? Math.min(S.w * 0.7, 900) : S.w * 0.84;
-      S.pts = logoPoints(lw, Math.round(n * 0.86));
+      // la forma del logo se calcula aparte, cuando el navegador está libre
+      S.pts = null;
+      idleRun(function () { if (!S.pts) S.pts = logoShape(); });
     }
     resize();
     window.addEventListener("resize", resize);
@@ -262,7 +269,8 @@
   function drawStars(t) {
     var ctx = S.ctx, P = S.p, n = P.length, m = currentMode(), W = S.w, H = S.h;
     var k = reduce ? 1 : (m.mode === "logo" ? 0.075 : 0.045);
-    var pts = S.pts, np = pts.length;
+    if (m.mode === "logo" && !S.pts) S.pts = logoShape();
+    var pts = S.pts || [], np = pts.length;
     ctx.clearRect(0, 0, W, H);
     var groups = [[], [], []]; // tenue, blanco, cálido
     for (var i = 0; i < n; i++) {
@@ -329,6 +337,10 @@
   startReveal();
 
   function afterLoad() {
+    // el polvo de luz arranca cuando la primera pantalla ya se ve
+    idleRun(startStars);
+  }
+  function startStars() {
     setupStars();
     // decodificar las esculturas antes de llegar a ellas, sin bloquear nada
     var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 200); };

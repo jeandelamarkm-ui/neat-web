@@ -1,4 +1,8 @@
 /* NEAT · estilos del sitio */
+/* Letras servidas desde el propio sitio (Instrument Sans y Serif, licencia SIL OFL 1.1, ver fuentes/OFL.txt) */
+@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("fuentes/instrument-sans.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url("fuentes/instrument-serif.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url("fuentes/instrument-serif-italic.woff2") format("woff2"); }
 :root {
   --ink: #0b0d10;
   --night: #04080a;

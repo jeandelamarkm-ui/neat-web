@@ -17,9 +17,12 @@
 <meta property="og:url" content="https://jeandelamarkm-ui.github.io/neat-web/en/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0d10'/%3E%3Cg transform='translate(12.5 15.5) scale(.17)' fill='white'%3E%3Cpath d='M230.60%20162.00L230.60%20108.00C175.31%20108.00%20178.39%20109.39%20152.75%2083.75L97.68%2028.68C82.83%2013.83%2064.74%207.32%2043.74%207.32C25.28%207.32%200.00%2015.00%200.00%2053.91L0.00%20167.50L58.10%20167.50L58.10%2088.17C58.10%2081.93%2065.64%2078.81%2070.05%2083.22L120.60%20133.77C153.43%20166.59%20173.94%20174.00%20194.34%20174.00C207.91%20174.00%20220.86%20169.54%20230.60%20162.00Z'/%3E%3Ccircle cx='201.55' cy='36.37' r='29.05'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="preload" href="../assets/fuentes/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fuentes/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fuentes/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="../assets/cielo-1200.webp" imagesrcset="../assets/cielo-1200.webp 1x, ../assets/cielo-2400.webp 2x" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/mano-izq.webp" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/mano-der.webp" fetchpriority="high">
 <link rel="stylesheet" href="../assets/neat.css">
 <script>document.documentElement.className += " js";setTimeout(function(){if(!window.__neat)document.documentElement.classList.remove("js")},4000);</script>
 </head>
@@ -42,8 +45,8 @@
     <div class="night"></div>
     <div class="stage">
       <svg class="mark" viewBox="0 17.3 724 156.7" aria-hidden="true"><g transform="translate(0 10.44) scale(.94)"><path d="M230.60 162.00L230.60 108.00C175.31 108.00 178.39 109.39 152.75 83.75L97.68 28.68C82.83 13.83 64.74 7.32 43.74 7.32C25.28 7.32 0.00 15.00 0.00 53.91L0.00 167.50L58.10 167.50L58.10 88.17C58.10 81.93 65.64 78.81 70.05 83.22L120.60 133.77C153.43 166.59 173.94 174.00 194.34 174.00C207.91 174.00 220.86 169.54 230.60 162.00Z"/></g><path d="M260 20H383V56H296V79H371V114H296V138H383V174H260Z"/><path fill-rule="evenodd" d="M414 174L478 20H511L575 174H536L525 145H462L451 174Z M475 111H512L493.5 61Z"/><path d="M582 20H724V56H671V174H635V56H582Z"/></svg>
-      <div class="hand hand-l"><img src="../assets/mano-izq.webp" alt="" width="1098" height="627" decoding="async"></div>
-      <div class="hand hand-r"><img src="../assets/mano-der.webp" alt="" width="1103" height="730" decoding="async"></div>
+      <div class="hand hand-l"><img src="../assets/mano-izq.webp" alt="" width="1098" height="627" decoding="async" fetchpriority="high"></div>
+      <div class="hand hand-r"><img src="../assets/mano-der.webp" alt="" width="1103" height="730" decoding="async" fetchpriority="high"></div>
       <div class="spark" aria-hidden="true"><div class="glow"><i></i></div><div class="core"></div></div>
     </div>
     <div class="hero-copy">
