@@ -121,7 +121,7 @@
     if (cue) cue.style.opacity = (1 - ss(0.02, 0.15, t)).toFixed(3);
 
     // ---- retícula e índice ----
-    var p = Math.min(1, t / L);
+    var p = L > 0 ? Math.min(1, t / L) : 1;
     if (prog) prog.style.transform = "scaleX(" + p.toFixed(4) + ")";
     var ch = chOf[Math.min(chOf.length - 1, Math.round(t))] || 0;
     if (ch !== lastCh) {
