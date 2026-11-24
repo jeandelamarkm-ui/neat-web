@@ -2,72 +2,92 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Let’s talk · NEAT</title>
-<meta name="description" content="Tell us which process is taking time, creating rework or failing to scale.">
-<meta name="theme-color" content="#06080b">
-<link rel="alternate" hreflang="es" href="https://get-neat.ai/hablemos.html">
-<link rel="alternate" hreflang="en" href="https://get-neat.ai/en/contact.html">
+<title>Let’s Look at Your Operations | NEAT</title>
+<meta name="description" content="Tell us which process is taking too much time, capacity, or control. Start with one focused conversation.">
+<meta name="theme-color" content="#f3f2f0">
+<meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NEAT">
-<meta property="og:title" content="Let’s talk · NEAT">
-<meta property="og:description" content="Tell us which process is taking time, creating rework or failing to scale.">
+<meta property="og:title" content="Let’s Look at Your Operations | NEAT">
+<meta property="og:description" content="Tell us which process is taking too much time, capacity, or control. Start with one focused conversation.">
 <meta property="og:image" content="https://jeandelamarkm-ui.github.io/neat-web/assets/og.jpg">
-<meta property="og:url" content="https://jeandelamarkm-ui.github.io/neat-web/en/contact.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0d10'/%3E%3Cg transform='translate(12.5 15.5) scale(.17)' fill='white'%3E%3Cpath d='M230.60%20162.00L230.60%20108.00C175.31%20108.00%20178.39%20109.39%20152.75%2083.75L97.68%2028.68C82.83%2013.83%2064.74%207.32%2043.74%207.32C25.28%207.32%200.00%2015.00%200.00%2053.91L0.00%20167.50L58.10%20167.50L58.10%2088.17C58.10%2081.93%2065.64%2078.81%2070.05%2083.22L120.60%20133.77C153.43%20166.59%20173.94%20174.00%20194.34%20174.00C207.91%20174.00%20220.86%20169.54%20230.60%20162.00Z'/%3E%3Ccircle cx='201.55' cy='36.37' r='29.05'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preload" href="../assets/fuentes/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fuentes/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fuentes/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/neat.css">
-<script>document.documentElement.className += " js";setTimeout(function(){if(!window.__neat)document.documentElement.classList.remove("js")},4000);</script>
+<link rel="preload" as="image" href="../assets/horizonte-1200.webp" imagesrcset="../assets/horizonte-1200.webp 1200w, ../assets/horizonte-2400.webp 2400w" imagesizes="(max-width:900px) 130vh, max(100vw,177.78vh)" fetchpriority="high">
+<link rel="stylesheet" href="../assets/v3.css">
+<script>document.documentElement.className+=" js";window.NEAT_POS={"fx": 0.5076, "fy": 0.5, "fs": 0.12};setTimeout(function(){if(!window.__neat)document.documentElement.classList.remove("js")},4000);</script>
 </head>
-<body>
+<body class="p-talk">
 <a class="skip" href="#main">Skip to content</a>
-<canvas id="dots" aria-hidden="true"></canvas>
-<header class="head">
-  <div class="wrap">
-    <a class="brand" href="index.html" aria-label="NEAT"><svg class="" viewBox="0 17.3 724 156.7" role="img" aria-label="NEAT"><g transform="translate(0 10.44) scale(.94)"><path d="M230.60 162.00L230.60 108.00C175.31 108.00 178.39 109.39 152.75 83.75L97.68 28.68C82.83 13.83 64.74 7.32 43.74 7.32C25.28 7.32 0.00 15.00 0.00 53.91L0.00 167.50L58.10 167.50L58.10 88.17C58.10 81.93 65.64 78.81 70.05 83.22L120.60 133.77C153.43 166.59 173.94 174.00 194.34 174.00C207.91 174.00 220.86 169.54 230.60 162.00Z"/></g><circle cx="189.46" cy="44.63" r="27.31"/><path d="M260 20H383V56H296V79H371V114H296V138H383V174H260Z"/><path fill-rule="evenodd" d="M414 174L478 20H511L575 174H536L525 145H462L451 174Z M475 111H512L493.5 61Z"/><path d="M582 20H724V56H671V174H635V56H582Z"/></svg></a>
-    <nav class="nav" aria-label="Main"><a href="capabilities.html">Capabilities</a><a href="protocol.html">NEAT Protocol</a><a href="work.html">Work</a><a href="about.html">About</a></nav>
-    <a class="lang" href="../hablemos.html" hreflang="es" lang="es" aria-label="Leer en español">ES</a>
-    <a class="head-cta" href="contact.html"><span>Let’s talk about your operation</span></a>
-    <button class="menu-btn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><i></i><i></i></button>
-  </div>
+
+<header class="top">
+  <a class="brand" href="index.html" aria-label="NEAT"><svg class="" viewBox="0 17.3 724 156.7" role="img" aria-label="NEAT"><g transform="translate(0 10.44) scale(.94)"><path d="M230.60 162.00L230.60 108.00C175.31 108.00 178.39 109.39 152.75 83.75L97.68 28.68C82.83 13.83 64.74 7.32 43.74 7.32C25.28 7.32 0.00 15.00 0.00 53.91L0.00 167.50L58.10 167.50L58.10 88.17C58.10 81.93 65.64 78.81 70.05 83.22L120.60 133.77C153.43 166.59 173.94 174.00 194.34 174.00C207.91 174.00 220.86 169.54 230.60 162.00Z"/></g><circle cx="189.46" cy="44.63" r="27.31"/><path d="M260 20H383V56H296V79H371V114H296V138H383V174H260Z"/><path fill-rule="evenodd" d="M414 174L478 20H511L575 174H536L525 145H462L451 174Z M475 111H512L493.5 61Z"/><path d="M582 20H724V56H671V174H635V56H582Z"/></svg></a>
+  <nav class="pills" aria-label="Main"><a href="capabilities.html">What We Do</a><a href="work.html">Work</a><a href="protocol.html">NEAT Protocol</a><a href="about.html">About</a></nav>
+  <a class="lang" href="../hablemos.html" hreflang="es" lang="es" aria-label="Leer en español">ES</a>
+  <a class="talk" href="contact.html"><i aria-hidden="true">→</i><span>Let’s look at your operations</span></a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><i></i><i></i></button>
 </header>
-<div class="drawer" id="drawer"><a href="capabilities.html">Capabilities</a><a href="protocol.html">NEAT Protocol</a><a href="work.html">Work</a><a href="about.html">About</a><a href="../hablemos.html" lang="es">Español</a><a class="btn" href="contact.html">Let’s talk about your operation <span class="arr" aria-hidden="true">→</span></a></div>
+<div class="drawer" id="drawer"><a href="capabilities.html">What We Do</a><a href="work.html">Work</a><a href="protocol.html">NEAT Protocol</a><a href="about.html">About</a><a href="contact.html" aria-current="page">Let’s Talk</a><a href="../hablemos.html" lang="es">Español</a><a class="btn" href="contact.html">Let’s look at your operations <span class="arr" aria-hidden="true">→</span></a></div>
+
+<div class="stage" aria-hidden="true">
+  <div class="scene s5" data-s="5" data-a="0" data-b="2" data-z="0" data-pan="0"><div class="cam"><img class="plate" data-srcset="../assets/horizonte-1200.webp 1200w, ../assets/horizonte-2400.webp 2400w" sizes="(max-width:900px) 130vh, max(100vw,177.78vh)" alt="" decoding="async"></div></div>
+  <div class="scrim"></div>
+  <div class="veil"></div>
+</div>
+<div class="grid" aria-hidden="true">
+  <i class="v l"></i><i class="v r"></i><i class="h"></i><i class="prog"></i><i class="x l"></i><i class="x r"></i>
+  <span class="lab" data-names="Let’s talk|The conversation|Form" data-total="3">01 / 03 · Let’s talk</span><span class="coord">000%</span>
+</div>
+
+
 <main id="main">
-  <section class="page-hero plain" data-head="dark" style="padding-bottom:clamp(84px,13vh,150px)">
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow rv">Let’s talk · A short way in. A concrete conversation.</p>
-        <h1 class="display rv d1" style="font-size:clamp(2.5rem,5vw,4.8rem)">Let’s look at what’s slowing <em>your team down</em>.</h1>
-        <p class="lead rv d2">Tell us which process is taking time, creating rework or failing to scale. The first conversation is for understanding fit and deciding whether it is worth going deeper; it is not a free audit.</p>
-        <p class="coda rv d3" style="font-size:clamp(1.25rem,1.8vw,1.6rem)">In a 30-minute conversation, we’ll see whether it is worth solving and where we would start.</p>
-        <p class="mailto rv d3">Prefer email? <a href="mailto:contactus@get-neat.ai">contactus@get-neat.ai</a></p>
-      </div>
-      <form class="form rv d2" novalidate>
-        <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required autocomplete="name" aria-describedby="name-e"><p class="err" id="name-e">This field is required.</p></div>
-        <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" required autocomplete="organization" aria-describedby="company-e"><p class="err" id="company-e">This field is required.</p></div>
-        <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" required autocomplete="email" aria-describedby="email-e"><p class="err" id="email-e">Please enter a valid email.</p></div>
-        <div class="field"><label for="process">What process would you like to improve? <i>(1–3 sentences)</i></label><textarea id="process" name="process"></textarea></div>
+  <section class="beat first center" data-ch="0">
+    <div class="inner">
+      <p class="eye">Start with one process</p>
+      <h1>Start with <em>one process</em>.</h1>
+      <p class="lead">You do not need to know what to automate before you reach out. Tell us which part of your operations has become slow, expensive, hard to control, or too dependent on manual work.</p>
+      <div class="actions"><a class="btn" href="#formulario">Book a conversation <span class="arr" aria-hidden="true">→</span></a></div>
+      <p class="note">25 minutes. One process. No AI pitch unless it belongs there.</p>
+    </div>
+  </section>
+  <section class="beat" data-ch="1">
+    <div class="inner">
+      <p class="eye">What happens in the conversation</p>
+      <ol class="steps conv"><li><span class="n">01</span><h3>You tell us how it works today.</h3></li><li><span class="n">02</span><h3>We identify where the friction seems to be.</h3></li><li><span class="n">03</span><h3>We look at whether there is an opportunity worth exploring.</h3></li><li><span class="n">04</span><h3>If there is, we define the next step. If there isn’t, we’ll tell you.</h3></li></ol>
+      <p class="coda">You don’t need to show up with the solution.</p>
+      <p class="sub">That’s our job.</p>
+    </div>
+  </section>
+  <section class="beat formbeat" id="formulario" data-ch="2">
+    <div class="inner">
+      <h2>Give us enough context. <em>We’ll handle the rest together.</em></h2>
+      <form class="form" method="post" action="#formulario" novalidate data-conectado="no">
+        <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required><p class="err" id="name-e" hidden>This field is required.</p></div>
+        <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization" required><p class="err" id="company-e" hidden>This field is required.</p></div>
+        <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required><p class="err" id="email-e" hidden>Enter a valid email.</p></div>
+        <div class="field"><label for="role">Role <i>(optional)</i></label><input id="role" name="role" type="text" autocomplete="organization-title"></div>
+        <div class="field"><label for="process">Which part of your operations is taking too much time?</label><textarea id="process" name="process" rows="4" required></textarea><p class="err" id="process-e" hidden>This field is required.</p></div>
         <label class="check"><input type="checkbox" id="consent" name="consent"><span>I agree to the processing of my personal data under NEAT’s Privacy Policy.</span></label>
-        <p class="err consent-err" hidden style="color:#a1361f;font-size:.85rem;margin-top:-8px">We need your consent to continue.</p>
-        <button class="btn" type="submit" disabled>Send <span class="arr" aria-hidden="true">→</span></button>
-        <p class="status" role="status" tabindex="-1">Nothing has been sent yet: this form is not connected. In the meantime, email us at <a href="mailto:contactus@get-neat.ai">contactus@get-neat.ai</a>.</p>
+        <p class="err" id="consent-e" hidden>We need your consent to continue.</p>
+        <button class="btn" type="submit" disabled>Share my process <span class="arr" aria-hidden="true">→</span></button>
+        <p class="status" role="status" tabindex="-1" hidden>Nothing has been sent yet: this form is not connected. In the meantime, write to us at <a href="mailto:contactus@get-neat.ai">contactus@get-neat.ai</a>.</p>
+        <noscript><p class="status">Nothing has been sent yet: this form is not connected. In the meantime, write to us at <a href="mailto:contactus@get-neat.ai">contactus@get-neat.ai</a>.</p></noscript>
       </form>
     </div>
   </section>
 </main>
-<footer class="foot" data-head="dark">
-  <div class="wrap">
-    <div class="foot-top">
-      <div><svg class="foot-logo" viewBox="0 17.3 724 156.7" role="img" aria-label="NEAT"><g transform="translate(0 10.44) scale(.94)"><path d="M230.60 162.00L230.60 108.00C175.31 108.00 178.39 109.39 152.75 83.75L97.68 28.68C82.83 13.83 64.74 7.32 43.74 7.32C25.28 7.32 0.00 15.00 0.00 53.91L0.00 167.50L58.10 167.50L58.10 88.17C58.10 81.93 65.64 78.81 70.05 83.22L120.60 133.77C153.43 166.59 173.94 174.00 194.34 174.00C207.91 174.00 220.86 169.54 230.60 162.00Z"/></g><circle cx="189.46" cy="44.63" r="27.31"/><path d="M260 20H383V56H296V79H371V114H296V138H383V174H260Z"/><path fill-rule="evenodd" d="M414 174L478 20H511L575 174H536L525 145H462L451 174Z M475 111H512L493.5 61Z"/><path d="M582 20H724V56H671V174H635V56H582Z"/></svg><p>Intelligent systems for better operations. We build from Colombia and work in Spanish and English.</p></div>
-      <nav class="foot-nav" aria-label="Site"><a href="capabilities.html">Capabilities</a><a href="protocol.html">NEAT Protocol</a><a href="work.html">Work</a><a href="about.html">About</a><a href="contact.html">Let’s talk about your operation</a><a href="../hablemos.html" lang="es">Español</a></nav>
-    </div>
-    <div class="foot-legal"><span>© 2026 NEAT</span><a href="mailto:contactus@get-neat.ai">contactus@get-neat.ai</a></div>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div><svg class="foot-logo" viewBox="0 17.3 724 156.7" role="img" aria-label="NEAT"><g transform="translate(0 10.44) scale(.94)"><path d="M230.60 162.00L230.60 108.00C175.31 108.00 178.39 109.39 152.75 83.75L97.68 28.68C82.83 13.83 64.74 7.32 43.74 7.32C25.28 7.32 0.00 15.00 0.00 53.91L0.00 167.50L58.10 167.50L58.10 88.17C58.10 81.93 65.64 78.81 70.05 83.22L120.60 133.77C153.43 166.59 173.94 174.00 194.34 174.00C207.91 174.00 220.86 169.54 230.60 162.00Z"/></g><circle cx="189.46" cy="44.63" r="27.31"/><path d="M260 20H383V56H296V79H371V114H296V138H383V174H260Z"/><path fill-rule="evenodd" d="M414 174L478 20H511L575 174H536L525 145H462L451 174Z M475 111H512L493.5 61Z"/><path d="M582 20H724V56H671V174H635V56H582Z"/></svg><p>Intelligent systems for better operations.<br>Humans where they matter most.</p></div>
+    <nav class="foot-nav" aria-label="Site"><a href="capabilities.html">What We Do</a><a href="work.html">Work</a><a href="protocol.html">NEAT Protocol</a><a href="about.html">About</a><a href="contact.html">Let’s Talk</a><a href="../hablemos.html" lang="es">Español</a></nav>
   </div>
+  <div class="foot-legal"><span>© 2026 NEAT</span><a href="mailto:contactus@get-neat.ai">contactus@get-neat.ai</a></div>
 </footer>
-<script src="../assets/neat.js"></script>
+<script src="../assets/v3.js"></script>
 </body>
 </html>
